@@ -1,0 +1,97 @@
+.login-background {
+    // background: rgb(34, 193, 195);
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34, 193, 195, 1)0%, rgba(253, 187, 45, 1)100%);
+
+    .login-container {
+        width: 400px;
+        height: 100%;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+
+        .login-content {
+            padding: 15px;
+
+            .login-text {
+                text-align: center;
+                font-weight: 600;
+                font-size: 24px;
+                padding-top: 10px;
+            }
+
+            .login-input {
+                margin: 7px 0;
+            }
+
+            .login-btn {
+                width: 100%;
+                margin: 10px 0;
+                height: 35px;
+                border-radius: 15px;
+                outline: none;
+                border: none;
+                color: white;
+                font-size: 16px;
+                background: linear-gradient(135deg, rgba(34, 193, 195, 1)0%, rgba(253, 187, 45, 1)100%);
+            }
+
+            .forgot-password {
+                font-size: 12px;
+            }
+
+            .login-social {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10px;
+                gap: 16px;
+
+                i.google {
+                    font-size: 35px;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, rgba(255, 140, 66, 1)0%, rgba(102, 51, 153, 1)100%);
+                    ;
+                }
+
+                i.facebook {
+                    font-size: 35px;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, rgba(0, 122, 204, 1)0%, rgba(46, 160, 67, 1)100%);
+                }
+
+                i.instagram {
+                    font-size: 35px;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, rgba(187, 134, 252, 1)0%, rgba(255, 64, 129, 1)100%);
+                }
+
+                i.line {
+                    font-size: 35px;
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, rgba(34, 139, 34, 1)0%, rgba(255, 214, 64, 1)100%);
+                }
+            }
+        }
+    }
+}
