@@ -1,22 +1,32 @@
+import express from "express";
+import bodyParser from "body-parser";
+import viewEngine from "./config/viewEngine";
+import initWebRoutes from './route/web';
+import connectDB from './config/connectDB';
+import cors from "cors";
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const configViewEngine = require('./config/viewEngine');
+// const initWebRoutes = require('./route/web');
+// const connectDB = require('./config/connectDB');
+require('dotenv').config();
 
-const express = require('express');//load framework express
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../env') });//read data form .env
+let app = express();
+app.use(cors());//cho phep frontend goi api
 
-const app = express();
-const indexRouter = require('./routes/index'); //make indexRouter form file index.js in routes
+//config app
 
-//set up View Engine
-app.set('view engine', 'ejs'); //use EJS for template engine
-app.set('views', path.join(__dirname, 'views'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 
-//set up File static(css, js, image) from frontend
-app.use(express.static(path.join(__dirname, '../frontend/public')));
-app.use(express.urlencoded({ extended: true }));//real data form HTML
-app.use('/', indexRouter); //handle date in route form '/'
-const PORT = process.env.PORT || 8386; //read port form .env gate:8386
+viewEngine(app);
+initWebRoutes(app);
 
-app.listen(PORT, () => {
-    console.log('Server is flying at sky gate: 8386');
+connectDB();
+
+let port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+    //callback
+    console.log("Backend Nodejs is runing on the port : " + port)
 })
-
