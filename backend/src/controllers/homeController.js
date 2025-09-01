@@ -1,6 +1,6 @@
 import db from '../models/index';
 import CRUDService from '../services/CRUDService';
-import { loginUser } from '../services/CRUDService';
+// import { loginUser } from '../services/CRUDService';
 // const db = require('../models/index');
 let getHomePage = async (req, res) => {
     try {
@@ -67,14 +67,14 @@ let deleteCRUD = async (req, res) => {
         return res.send('User not found!')
     }
 }
-let handleLogin = async (req, res) => {
-    try {
-        let data = await loginUser(req.body);
-        return res.status(200).json(data);
-    } catch (e) {
-        console.log('error' + e.message || e)
-    }
-}
+// let handleLogin = async (req, res) => {
+//     try {
+//         let data = await loginUser(req.body);
+//         return res.status(200).json(data);
+//     } catch (e) {
+//         console.log('error' + e.message || e)
+//     }
+// }
 module.exports = {
     getHomePage: getHomePage,
     getCRUD: getCRUD,
@@ -83,5 +83,5 @@ module.exports = {
     getEditCRUD: getEditCRUD,
     putCRUD: putCRUD,
     deleteCRUD: deleteCRUD,
-    handleLogin: handleLogin,
+    // handleLogin: handleLogin,
 }

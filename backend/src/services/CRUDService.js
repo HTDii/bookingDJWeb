@@ -123,44 +123,44 @@ let deleteUserById = (userID) => {
         }
     })
 }
-let loginUser = async (data) => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            console.log('debug body', data)
-            let userData = {};
-            let email = data.email;
-            let user = await db.User.findOne({
-                where: { email: email },
-            })
-            if (user) {
-                let checkPassword = bcrypt.compareSync(data.password, user.password);
-                if (checkPassword) {
-                    userData.message = 'Login success!'
-                    userData.user = {
-                        id: user.id,
-                        email: user.email,
-                        firstName: user.firstName,
+// let loginUser = async (data) => {
+//     return new Promise(async (resolve, reject) => {
+//         try {
+//             console.log('debug body', data)
+//             let userData = {};
+//             let email = data.email;
+//             let user = await db.User.findOne({
+//                 where: { email: email },
+//             })
+//             if (user) {
+//                 let checkPassword = bcrypt.compareSync(data.password, user.password);
+//                 if (checkPassword) {
+//                     userData.message = 'Login success!'
+//                     userData.user = {
+//                         id: user.id,
+//                         email: user.email,
+//                         firstName: user.firstName,
 
-                        lastName: user.lastName,
-                    }
-                    resolve(userData)
-                } else {
-                    reject({ message: 'Wrong password!!!' })
-                }
-            }
-            else {
-                reject({ message: 'User not found!!!' })
-            }
-        } catch (e) {
-            reject(e);
-        }
-    })
-}
+//                         lastName: user.lastName,
+//                     }
+//                     resolve(userData)
+//                 } else {
+//                     reject({ message: 'Wrong password!!!' })
+//                 }
+//             }
+//             else {
+//                 reject({ message: 'User not found!!!' })
+//             }
+//         } catch (e) {
+//             reject(e);
+//         }
+//     })
+// }
 module.exports = {
     createNewUser: createNewUser,
     getAllUser: getAllUser,
     getUserInfoById: getUserInfoById,
     updateUserData: updateUserData,
     deleteUserById: deleteUserById,
-    loginUser: loginUser,
+    // loginUser: loginUser,
 }
